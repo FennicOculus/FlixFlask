@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Weeb Zone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" size="" type="image/png" href="{{ url_for('static', filename='icon.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="nav-left">
+                <a href="#home">Home</a>
+                <a href="#seasonal-anime">Seasonal Anime</a>
+                <a href="#movies">Movies</a>
+            </div>
+            <div class="nav-center">
+                <h1>The Weeb Zone</h1>
+            </div>
+            <div class="nav-right">
+                <a href="#profile" id="pfp-button"><img src="{{ url_for('static', filename='images/pfps/' + profile_image) }}" alt="Profile" class="profile-img"></a>
+                <div id="sliding-menu" class="menu-hidden">
+                    <a href="#profile"><img src="{{ url_for('static', filename='images/icons/profile.png') }}" alt="Profile Icon" class="menu-icon"> Profile</a>
+                    <a href="#friends"><img src="{{ url_for('static', filename='images/icons/friends.png') }}" alt="Friends Icon" class="menu-icon"> Friends</a>
+                    <a href="#your-anime"><img src="{{ url_for('static', filename='images/icons/anime.png') }}" alt="Anime Icon" class="menu-icon"> Your Anime</a>
+                    <a href="#settings"><img src="{{ url_for('static', filename='images/icons/settings.png') }}" alt="Settings Icon" class="menu-icon"> Settings</a>
+                    <a href="#logout"><img src="{{ url_for('static', filename='images/icons/logout.png') }}" alt="Logout Icon" class="menu-icon"> LogOut</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Your content here -->
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

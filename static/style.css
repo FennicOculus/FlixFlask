@@ -1,0 +1,119 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    scroll-padding-top: 60px; /* Adjust based on the height of your fixed navbar */
+}
+
+header h1 {
+    text-align: center;
+    position: relative; /* Adjust if needed */
+    display: block; /* Hide on scroll if desired, but this requires JavaScript */
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    z-index: 1000;
+}
+
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-center {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-center h1 {
+    margin: 0; /* Removes default margin to align title properly */
+    text-align: center;
+}
+
+.nav-left, .nav-right {
+    height: 100px; /* Adjust based on your navbar's height */
+    align-items: center;
+}
+
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+}
+
+.nav-left a:hover {
+    background-color: #555;
+}
+
+.nav-right a:hover{
+    background-color: none;
+}
+
+
+.profile-img {
+    border-radius: 75%;
+    width: 60px; /* Adjust based on your image */
+    height: 60px; /* Adjust to keep the aspect ratio of your image */
+}
+
+.hidden-title {
+    display: none;
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.profile-img:hover {
+    animation: rotate360 0.5s ease-in-out;
+}
+
+#sliding-menu {
+    position: absolute;
+    top: 60px; /* Adjust based on your navbar's height */
+    right: 0;
+    background-color: #333;
+    width: 200px; /* Adjust based on your preference */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#sliding-menu a {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-bottom: 1px solid #555;
+}
+
+#sliding-menu a img.menu-icon {
+    margin-right: 10px;
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+}
+
+#sliding-menu a i {
+    margin-right: 10px;
+}
+
+.menu-hidden {
+    transform: translateX(100%);
+}
+
+.menu-visible {
+    transform: translateX(0);
+}
+
