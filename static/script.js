@@ -13,7 +13,7 @@ window.addEventListener("scroll", function() {
     }
     // Update the last scroll position to the current position
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-}, false);
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('pfp-button').addEventListener('click', function(event) {
@@ -29,5 +29,23 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.classList.add('menu-hidden');
         }
     });
-});
+    
+    const themeToggle = document.getElementById('night-theme-toggle');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIcon = document.getElementById('sun-icon');
+    const isNightTheme = localStorage.getItem('nightTheme') === 'true';
 
+    // Set the initial theme and icon
+    document.body.classList.toggle('night-theme', isNightTheme);
+    moonIcon.style.display = isNightTheme ? 'inline-block' : 'none';
+    sunIcon.style.display = isNightTheme ? 'none' : 'inline-block';
+
+    themeToggle.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        const isNightMode = document.body.classList.contains('night-theme');
+        document.body.classList.toggle('night-theme', !isNightMode);
+        moonIcon.style.display = isNightMode ? 'none' : 'inline-block';
+        sunIcon.style.display = isNightMode ? 'inline-block' : 'none';
+        localStorage.setItem('nightTheme', !isNightMode);
+    });
+});

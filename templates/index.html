@@ -20,13 +20,20 @@
                 <h1>The Weeb Zone</h1>
             </div>
             <div class="nav-right">
-                <a href="#profile" id="pfp-button"><img src="{{ url_for('static', filename='images/pfps/' + profile_image) }}" alt="Profile" class="profile-img"></a>
-                <div id="sliding-menu" class="menu-hidden">
-                    <a href="#profile"><img src="{{ url_for('static', filename='images/icons/profile.png') }}" alt="Profile Icon" class="menu-icon"> Profile</a>
-                    <a href="#friends"><img src="{{ url_for('static', filename='images/icons/friends.png') }}" alt="Friends Icon" class="menu-icon"> Friends</a>
-                    <a href="#your-anime"><img src="{{ url_for('static', filename='images/icons/anime.png') }}" alt="Anime Icon" class="menu-icon"> Your Anime</a>
-                    <a href="#settings"><img src="{{ url_for('static', filename='images/icons/settings.png') }}" alt="Settings Icon" class="menu-icon"> Settings</a>
-                    <a href="#logout"><img src="{{ url_for('static', filename='images/icons/logout.png') }}" alt="Logout Icon" class="menu-icon"> LogOut</a>
+                <div class="dropdown">
+                    <a href="#profile" id="pfp-button"><img src="{{ url_for('static', filename='images/pfps/' + profile_image) }}" alt="Profile" class="profile-img"></a>
+                    <div class="dropdown-content">
+                        <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#friends"><i class="fas fa-users"></i> Friends</a>
+                        <a href="#your-anime"><i class="fas fa-film"></i> Your Anime</a>
+                        <a href="#stats"><i class="fas fa-chart-line"></i> Stats</a>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" id="night-theme-toggle">
+                            <i class="fas fa-moon" id="moon-icon" style="display:none;"></i>
+                            <i class="fas fa-sun" id="sun-icon"></i> Night Theme
+                        </a>
+                        <a href="#logout"><i class="fas fa-sign-out-alt"></i> LogOut</a>
+                    </div>
                 </div>
             </div>
         </nav>
