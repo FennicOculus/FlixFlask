@@ -4,6 +4,15 @@ body, html {
     scroll-padding-top: 60px; /* Adjust based on the height of your fixed navbar */
 }
 
+body {
+    padding-top: 70px; /* Adjust based on the actual height of your navbar */
+}
+
+main {
+    margin-top: 70px; /* Adjust based on the actual height of your navbar */
+}
+
+
 header {
     position: relative;
     width: 100%;
@@ -36,6 +45,22 @@ header h1 {
     margin: 0;
     /* Ensure it's on top of other elements if needed */
     z-index: 2;
+}
+
+img {
+    max-width: 480px; /* Maximum width */
+    max-height: 720px; /* Maximum height */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+    margin: 0 auto; /* Center the image if it's smaller than the container */
+}
+
+@media (max-width: 768px) {
+    img {
+        max-width: 100%; /* Allows the image to scale down on smaller screens */
+        height: auto; /* Adjusts the height automatically to maintain aspect ratio */
+    }
 }
 
 
@@ -73,6 +98,7 @@ header h1 {
     border-radius: 75%;
     width: 60px; /* Adjust based on your image */
     height: 60px; /* Adjust to keep the aspect ratio of your image */
+    background-color: none;
 }
 
 .hidden-title {
@@ -136,5 +162,78 @@ header h1 {
 .night-theme nav, .night-theme a {
     background-color: #333;
     color: #ecf0f1;
+}
+
+.slider-container {
+    width: 70%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.anime-slider {
+    display: flex;
+    width: 100%;
+}
+
+.anime-slide {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+}
+
+.anime-slide img {
+    width: 50%; /* Adjust based on your preference */
+}
+
+.anime-info {
+    padding: 20px;
+}
+
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    z-index: 10;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+
+
+.anime-slide {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Align items to the start (left) */
+    width: 720px; /* Each slide fills the slider */
+    height: 1080px; /* Fixed height to match the slider */
+    margin: auto; /* Center the slider */
+    position: relative; /* Needed for absolute positioning of arrows and slides */
+    overflow: hidden; /* Hide the overflow */
+}
+
+.anime-slide img {
+    max-width: 360px; /* Half of your slider width, adjust as needed */
+    max-height: 540px; /* Adjust based on your preference */
+    object-fit: cover; /* Cover the area without losing aspect ratio */
+    margin-right: 20px; /* Adds some space between the image and the text */
+}
+
+.anime-info {
+    /* Adjustments for text content next to the image */
+    flex-grow: 1; /* Take up remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: left; /* Center the text vertically */
 }
 

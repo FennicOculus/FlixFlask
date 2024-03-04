@@ -1,4 +1,6 @@
 let lastScrollTop = 0; // Keep track of the last scroll position
+let slideIndex = 1;
+showSlide(slideIndex);
 
 window.addEventListener("scroll", function() {
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.classList.remove('menu-visible');
             menu.classList.add('menu-hidden');
         }
+        showSlide(slideIndex);
     });
     
     const themeToggle = document.getElementById('night-theme-toggle');
@@ -49,3 +52,22 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('nightTheme', !isNightMode);
     });
 });
+
+function moveSlide(n) {
+    showSlide(slideIndex += n);
+}
+
+function showSlide(n) {
+    let i;
+    let slides = document.getElementsByClassName("anime-slide");
+    if (!slides.length) {
+        console.error("No slides found.");
+        return; // Exit the function if no slides are present
+    }
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex-1].style.display = "flex";
+}
