@@ -164,65 +164,25 @@ img {
     color: #ecf0f1;
 }
 
-.slider-container {
-    width: 70%;
-    margin: auto;
+.anime-title {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.video-container {
     position: relative;
     overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    max-width: 100%; /* Adjust this value based on your preference */
 }
 
-.anime-slider {
-    display: flex;
-    width: 100%;
-}
-
-.anime-slide {
-    flex: 0 0 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center the content horizontally */
-    width: 100%; /* Ensure each slide is full width of the container */
-    height: 720px;
-}
-
-.slide-arrow {
+.video-container iframe {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-    border: 1px solid #ccc; /* Light border for visibility */
-    padding: 10px 15px; /* Adjust padding for better visibility */
-    z-index: 10;
-}
-
-.left-arrow {
-    left: 10px; /* Adjust as needed */
-}
-
-.right-arrow {
-    right: 10px; /* Adjust as needed */
-}
-
-.anime-slide img {
-    max-width: 360px; /* Half of your slider width, adjust as needed */
-    max-height: 540px; /* Adjust based on your preference */
-    object-fit: cover; /* Cover the area without losing aspect ratio */
-    margin-right: 20px; /* Adds some space between the image and the text */
-}
-
-
-
-.anime-info {
-    flex-grow: 1; /* Take up remaining space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center the text vertically */
-    text-align: left; /* Align the text to the left */
-    max-width: calc(100% - 360px); /* Adjust based on the image width to take up remaining space */
-    padding-right: 50px;
-}
-
-.anime-info h2 {
-    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

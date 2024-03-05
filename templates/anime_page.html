@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Weeb Zone</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ anime_name }} - The Weeb Zone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='icon.png') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Other head elements -->
 </head>
 <body>
     <header>
@@ -22,7 +23,8 @@
             <div class="nav-right">
                 <div class="dropdown">
                     <a href="#profile" id="pfp-button" style="background-color: transparent; outline: none;">
-                        <img src="static\images\pfps\Sylvie.webp" alt="Profile" class="profile-img"></a>
+                        <img src="{{ url_for('static', filename='images/pfps/Sylvie.webp') }}" alt="Profile" class="profile-img"></a>
+
                     <div class="dropdown-content">
                         <a href="{{ url_for('in_progress') }}"><i class="fas fa-user"></i> Profile</a>
                         <a href="{{ url_for('in_progress') }}"><i class="fas fa-users"></i> Friends</a>
@@ -40,22 +42,19 @@
         </nav>
     </header>
     <main>
-        <div class="slider-container">
-            {% for anime in anime_info %}
-            <div class="anime-slide">
-                <a href="{{ url_for('anime_page', anime_name=anime.name) }}" style="background-color: transparent; outline: none;">
-                    <img src="{{ url_for('static', filename=anime.image_path) }}" alt="{{ anime.name }}">
-                </a>
-                <div class="anime-info">
-                    <h2>{{ anime.name }}</h2>
-                    <p>{{ anime.synopsis }}</p>
-                </div>
+        <main>
+            <h1 class="anime-title">{{ anime_name }}</h1>
+            <div class="video-container">
+            {% if video_id %}
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% else %}
+                <p>Video not available.</p>
+            {% endif %}
             </div>
-            {% endfor %}
-            <button class="slide-arrow left-arrow" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="slide-arrow right-arrow" onclick="moveSlide(1)">&#10095;</button>
-        </div>
+            <!-- Any other content you want to include about the anime -->
+        </main>
+        
     </main>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script2.js') }}"></script>
 </body>
 </html>
